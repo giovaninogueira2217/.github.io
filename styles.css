@@ -10,14 +10,16 @@ body {
   color: #333;
   padding: 20px;
 }
-
 .dashboard {
   display: flex;
   flex-direction: column;
   max-width: 1200px;
   margin: 0 auto;
 }
-
+.hoststotal{
+  align-items: center;
+  margin-bottom: 10px;
+}
 /* Gráfico */
 .chart-container {
   background: #fff;
@@ -39,12 +41,12 @@ body {
   padding: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: left;
-  width: 100%; /* Garante que os itens ocupem 100% do espaço */
+  width: 100%; 
 }
 
 #server-list {
   display: grid;
-  grid-template-columns: repeat(7, 1fr); /* 7 colunas flexíveis com largura igual */
+  grid-template-columns: repeat(7, 1fr); 
   max-width: 1200px;
   margin: 0 auto;
   gap: 10px;
