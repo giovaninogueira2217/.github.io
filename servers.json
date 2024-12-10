@@ -1,0 +1,8 @@
+[
+  { "name": "Ipsoluction", "status": true, "version": "12.3.0", "asterisk": "Running" },
+  { "name": "3sat", "status": false, "version": "1.2.4", "asterisk": "Stopped" },
+  { "name": "Servidor 3", "status": true, "version": "1.3.0", "asterisk": "Running" },
+  { "name": "Servidor 4", "status": false, "version": "1.2.4", "asterisk": "Stopped" },
+  { "name": "Servidor 5", "status": false, "version": "1.2.4", "asterisk": "Stopped" },
+  { "name": "Servidor 6", "status": false, "version": "1.2.4", "asterisk": "Stopped" },
+]
