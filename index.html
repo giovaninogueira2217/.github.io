@@ -9,120 +9,172 @@
 </head>
 <body>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<header >
-  <main class="dashboard">
-
-    <div class="chart-container">
-      <div class="hoststotal">Hosts:</div>
+  <header>
+    <main class="dashboard">
+  
+      <div class="chart-container">
+        <div class="hoststotal">Hosts:</div>
         <canvas id="grafico"></canvas>
+      </div>
+  
+    </main> 
+  </header>
+  <section id="server-list">
 
+    <div class="server" id="server-status">
+      <h3>Ipsoluction</h3>
+      <p>Ansible:<span class="status">True</span></p>
+      <p>Asterisk:<span class="asterisk-version">Version: 2.13.0</span></p>
+      <p>Bacula:<span class="status">True</span></p>
+      <p>Fail2ban:<span class="status">False</span></p>
+      <p>Grafana:<span class="status">False</span></p>
+      <p>Iptables Status:<span class="status">True</span></p>
+      <p>Monitoring:<span class="status">True</span></p>
+      <p>Zabbix:<span class="status">True</span></p>
     </div>
-
-    </header>
- 
-
-      <section class="servers" id="server-list">
-
-        <div class="server" id="server-status">
-          <h3>Ipsoluction</h3>
-          <p>Ansible:<span class="status">True</span></p>
-          <p>Asterisk:<span class="asterisk-version">Version: 2.13.0</span></p>
-          <p>Bacula:<span class="status">True</span></p>
-          <p>Fail2ban:<span class="status">False</span></p>
-          <p>Grafana:<span class="status">False</span></p>
-          <p>Iptables Status:<span class="status">True</span></p>
-          <p>Monitoring:<span class="status">True</span></p>
-          <p>Zabbix:<span class="status">True</span></p>
-        </div>
-        <div class="server" id="server-status">
-          <h3>3sat</h3>
-          <p>Ansible:<span class="status">False</span></p>
-          <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
-          <p>Bacula:<span class="status">False</span></p>
-          <p>Fail2ban:<span class="status">False</span></p>
-          <p>Grafana:<span class="status">True</span></p>
-          <p>Iptables Status:<span class="status">True</span></p>
-          <p>Monitoring:<span class="status">True</span></p>
-          <p>Zabbix:<span class="status">True</span></p>
-        </div>
-        <div class="server" id="server-status">
-          <h3>3sat</h3>
-          <p>Ansible:<span class="status">False</span></p>
-          <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
-          <p>Bacula:<span class="status">False</span></p>
-          <p>Fail2ban:<span class="status">False</span></p>
-          <p>Grafana:<span class="status">True</span></p>
-          <p>Iptables Status:<span class="status">True</span></p>
-          <p>Monitoring:<span class="status">True</span></p>
-          <p>Zabbix:<span class="status">True</span></p>
-        </div>
-        <div class="server" id="server-status">
-          <h3>3sat</h3>
-          <p>Ansible:<span class="status">False</span></p>
-          <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
-          <p>Bacula:<span class="status">False</span></p>
-          <p>Fail2ban:<span class="status">False</span></p>
-          <p>Grafana:<span class="status">True</span></p>
-          <p>Iptables Status:<span class="status">True</span></p>
-          <p>Monitoring:<span class="status">True</span></p>
-          <p>Zabbix:<span class="status">True</span></p>
-        </div>
-        <div class="server" id="server-status">
-          <h3>3sat</h3>
-          <p>Ansible:<span class="status">False</span></p>
-          <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
-          <p>Bacula:<span class="status">False</span></p>
-          <p>Fail2ban:<span class="status">False</span></p>
-          <p>Grafana:<span class="status">True</span></p>
-          <p>Iptables Status:<span class="status">True</span></p>
-          <p>Monitoring:<span class="status">True</span></p>
-          <p>Zabbix:<span class="status">True</span></p>
-        </div>
-        <div class="server" id="server-status">
-          <h3>3sat</h3>
-          <p>Ansible:<span class="status">False</span></p>
-          <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
-          <p>Bacula:<span class="status">False</span></p>
-          <p>Fail2ban:<span class="status">False</span></p>
-          <p>Grafana:<span class="status">True</span></p>
-          <p>Iptables Status:<span class="status">True</span></p>
-          <p>Monitoring:<span class="status">True</span></p>
-          <p>Zabbix:<span class="status">True</span></p>
-        </div>
-        <div class="server" id="server-status">
-          <h3>3sat</h3>
-          <p>Ansible:<span class="status">False</span></p>
-          <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
-          <p>Bacula:<span class="status">False</span></p>
-          <p>Fail2ban:<span class="status">False</span></p>
-          <p>Grafana:<span class="status">True</span></p>
-          <p>Iptables Status:<span class="status">True</span></p>
-          <p>Monitoring:<span class="status">True</span></p>
-          <p>Zabbix:<span class="status">True</span></p>
-        </div>
-        <div class="server" id="server-status">
-          <h3>3sat</h3>
-          <p>Ansible:<span class="status">False</span></p>
-          <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
-          <p>Bacula:<span class="status">False</span></p>
-          <p>Fail2ban:<span class="status">False</span></p>
-          <p>Grafana:<span class="status">True</span></p>
-          <p>Iptables Status:<span class="status">True</span></p>
-          <p>Monitoring:<span class="status">True</span></p>
-          <p>Zabbix:<span class="status">True</span></p>
-        </div>
-        <div class="server" id="server-status">
-          <h3>3sat</h3>
-          <p>Ansible:<span class="status">False</span></p>
-          <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
-          <p>Bacula:<span class="status">False</span></p>
-          <p>Fail2ban:<span class="status">False</span></p>
-          <p>Grafana:<span class="status">True</span></p>
-          <p>Iptables Status:<span class="status">True</span></p>
-          <p>Monitoring:<span class="status">True</span></p>
-          <p>Zabbix:<span class="status">True</span></p>
-        </div>
-      </section>
-      </main>
+    <div class="server" id="server-status">
+      <h3>3sat</h3>
+      <p>Ansible:<span class="status">False</span></p>
+      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
+      <p>Bacula:<span class="status">False</span></p>
+      <p>Fail2ban:<span class="status">False</span></p>
+      <p>Grafana:<span class="status">True</span></p>
+      <p>Iptables Status:<span class="status">True</span></p>
+      <p>Monitoring:<span class="status">True</span></p>
+      <p>Zabbix:<span class="status">True</span></p>
+    </div>
+    <div class="server" id="server-status">
+      <h3>....</h3>
+      <p>Ansible:<span class="status">False</span></p>
+      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
+      <p>Bacula:<span class="status">False</span></p>
+      <p>Fail2ban:<span class="status">False</span></p>
+      <p>Grafana:<span class="status">True</span></p>
+      <p>Iptables Status:<span class="status">True</span></p>
+      <p>Monitoring:<span class="status">True</span></p>
+      <p>Zabbix:<span class="status">True</span></p>
+    </div>
+    <div class="server" id="server-status">
+      <h3>....</h3>
+      <p>Ansible:<span class="status">False</span></p>
+      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
+      <p>Bacula:<span class="status">False</span></p>
+      <p>Fail2ban:<span class="status">False</span></p>
+      <p>Grafana:<span class="status">True</span></p>
+      <p>Iptables Status:<span class="status">True</span></p>
+      <p>Monitoring:<span class="status">True</span></p>
+      <p>Zabbix:<span class="status">True</span></p>
+    </div>
+    <div class="server" id="server-status">
+      <h3>....</h3>
+      <p>Ansible:<span class="status">False</span></p>
+      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
+      <p>Bacula:<span class="status">False</span></p>
+      <p>Fail2ban:<span class="status">False</span></p>
+      <p>Grafana:<span class="status">True</span></p>
+      <p>Iptables Status:<span class="status">True</span></p>
+      <p>Monitoring:<span class="status">True</span></p>
+      <p>Zabbix:<span class="status">True</span></p>
+    </div>
+    <div class="server" id="server-status">
+      <h3>....</h3>
+      <p>Ansible:<span class="status">False</span></p>
+      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
+      <p>Bacula:<span class="status">False</span></p>
+      <p>Fail2ban:<span class="status">False</span></p>
+      <p>Grafana:<span class="status">True</span></p>
+      <p>Iptables Status:<span class="status">True</span></p>
+      <p>Monitoring:<span class="status">True</span></p>
+      <p>Zabbix:<span class="status">True</span></p>
+    </div>
+    <div class="server" id="server-status">
+      <h3>....</h3>
+      <p>Ansible:<span class="status">False</span></p>
+      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
+      <p>Bacula:<span class="status">False</span></p>
+      <p>Fail2ban:<span class="status">False</span></p>
+      <p>Grafana:<span class="status">True</span></p>
+      <p>Iptables Status:<span class="status">True</span></p>
+      <p>Monitoring:<span class="status">True</span></p>
+      <p>Zabbix:<span class="status">True</span></p>
+    </div>
+    <div class="server" id="server-status">
+      <h3>....</h3>
+      <p>Ansible:<span class="status">False</span></p>
+      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
+      <p>Bacula:<span class="status">False</span></p>
+      <p>Fail2ban:<span class="status">False</span></p>
+      <p>Grafana:<span class="status">True</span></p>
+      <p>Iptables Status:<span class="status">True</span></p>
+      <p>Monitoring:<span class="status">True</span></p>
+      <p>Zabbix:<span class="status">True</span></p>
+    </div>
+    <div class="server" id="server-status">
+      <h3>....</h3>
+      <p>Ansible:<span class="status">False</span></p>
+      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
+      <p>Bacula:<span class="status">False</span></p>
+      <p>Fail2ban:<span class="status">False</span></p>
+      <p>Grafana:<span class="status">True</span></p>
+      <p>Iptables Status:<span class="status">True</span></p>
+      <p>Monitoring:<span class="status">True</span></p>
+      <p>Zabbix:<span class="status">True</span></p>
+    </div>
+    <div class="server" id="server-status">
+      <h3>....</h3>
+      <p>Ansible:<span class="status">False</span></p>
+      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
+      <p>Bacula:<span class="status">False</span></p>
+      <p>Fail2ban:<span class="status">False</span></p>
+      <p>Grafana:<span class="status">True</span></p>
+      <p>Iptables Status:<span class="status">True</span></p>
+      <p>Monitoring:<span class="status">True</span></p>
+      <p>Zabbix:<span class="status">True</span></p>
+    </div>
+    <div class="server" id="server-status">
+      <h3>....</h3>
+      <p>Ansible:<span class="status">False</span></p>
+      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
+      <p>Bacula:<span class="status">False</span></p>
+      <p>Fail2ban:<span class="status">False</span></p>
+      <p>Grafana:<span class="status">True</span></p>
+      <p>Iptables Status:<span class="status">True</span></p>
+      <p>Monitoring:<span class="status">True</span></p>
+      <p>Zabbix:<span class="status">True</span></p>
+    </div>
+    <div class="server" id="server-status">
+      <h3>....</h3>
+      <p>Ansible:<span class="status">False</span></p>
+      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
+      <p>Bacula:<span class="status">False</span></p>
+      <p>Fail2ban:<span class="status">False</span></p>
+      <p>Grafana:<span class="status">True</span></p>
+      <p>Iptables Status:<span class="status">True</span></p>
+      <p>Monitoring:<span class="status">True</span></p>
+      <p>Zabbix:<span class="status">True</span></p>
+    </div>
+    <div class="server" id="server-status">
+      <h3>....</h3>
+      <p>Ansible:<span class="status">False</span></p>
+      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
+      <p>Bacula:<span class="status">False</span></p>
+      <p>Fail2ban:<span class="status">False</span></p>
+      <p>Grafana:<span class="status">True</span></p>
+      <p>Iptables Status:<span class="status">True</span></p>
+      <p>Monitoring:<span class="status">True</span></p>
+      <p>Zabbix:<span class="status">True</span></p>
+    </div>
+    <div class="server" id="server-status">
+      <h3>....</h3>
+      <p>Ansible:<span class="status">False</span></p>
+      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
+      <p>Bacula:<span class="status">False</span></p>
+      <p>Fail2ban:<span class="status">False</span></p>
+      <p>Grafana:<span class="status">True</span></p>
+      <p>Iptables Status:<span class="status">True</span></p>
+      <p>Monitoring:<span class="status">True</span></p>
+      <p>Zabbix:<span class="status">True</span></p>
+    </div>
+    </section>
 </body>
 </html>
