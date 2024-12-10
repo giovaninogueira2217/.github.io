@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Seleciona todos os elementos com a classe "status"
   const statusElements = document.querySelectorAll('.status');
 
-  // Itera sobre cada elemento e ajusta a classe com base no texto
+
   statusElements.forEach(statusElement => {
     const statusText = statusElement.textContent.trim().toLowerCase();
 
@@ -23,18 +22,17 @@ script.onload = () => {
       labels: ['Categoria A', 'Categoria B', 'Categoria C', 'Categoria D'],
       datasets: [{
         label: 'Distribuição',
-        data: [25, 35, 20, 20], // Valores em porcentagem
+        data: [25, 35, 20, 20], 
         backgroundColor: [
           '#ff9999',
           '#66b3ff',
           '#99ff99',
           '#ffcc99'
         ],
-        hoverOffset: 4 // Destaque ao passar o mouse
+        hoverOffset: 4 
       }]
     };
     
-    // Criação do gráfico
     const graficoPizza = new Chart(ctx, {
       type: 'pie',
       data: data,
