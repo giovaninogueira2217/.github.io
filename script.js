@@ -5,10 +5,10 @@ document.addEventListener('DOMContentLoaded',() => {
 
     type: 'pie',
     data: {
-        labels: ['Red', 'Blue', 'Yellow'], 
+        labels: ['Asterisk', 'Fail2ban', 'Iptables'], 
         datasets: [{
             data: [10, 20, 30],
-            backgroundColor: ['red', 'blue', 'yellow'],
+            backgroundColor: ['red', 'Green', 'Blue'],
         }]
     },
 });
