@@ -1,7 +1,17 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded',() => {
   const statusElements = document.querySelectorAll('.status');
+  const ctx = document.getElementById('grafico').getContext('2d');
+  const grafico = new Chart(ctx, {
 
-
+    type: 'pie',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow'], 
+        datasets: [{
+            data: [10, 20, 30],
+            backgroundColor: ['red', 'blue', 'yellow'],
+        }]
+    },
+});
   statusElements.forEach(statusElement => {
     const statusText = statusElement.textContent.trim().toLowerCase();
 
@@ -13,43 +23,4 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-const script = document.createElement('script');
-const ctx = document.getElementById('graficopizza').getContext('2d');
-script.src = "https://cdn.jsdelivr.net/npm/chart.js";
-script.onload = () => {
-    console.log("Chart.js carregado com sucesso!");
-    const data = {
-      labels: ['Categoria A', 'Categoria B', 'Categoria C', 'Categoria D'],
-      datasets: [{
-        label: 'Distribuição',
-        data: [25, 35, 20, 20], 
-        backgroundColor: [
-          '#ff9999',
-          '#66b3ff',
-          '#99ff99',
-          '#ffcc99'
-        ],
-        hoverOffset: 4 
-      }]
-    };
-    
-    const graficoPizza = new Chart(ctx, {
-      type: 'pie',
-      data: data,
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'top',
-          },
-          tooltip: {
-            enabled: true
-          }
-        }
-      }
-    });
-};
-script.onerror = () => {
-    console.error("Erro ao carregar o Chart.js");
-};
-document.head.appendChild(script);
+   

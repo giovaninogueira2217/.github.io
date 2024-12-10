@@ -26,22 +26,8 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   margin-bottom: 30px;
-}
-.graficopizza {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-.servers {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  align-items: center;
-  width: 250px;
+  width=: 300px;
+  height: 300px;
 }
 .server:hover {
    transform: scale(1.05); 
@@ -55,13 +41,19 @@ body {
   text-align: left;
 }
 #server-list {
-  display: grid;
-  grid-column: 3;
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
   margin: 0 auto;
-  margin-bottom: 30px;
-  padding: 20px;
-  border-radius: 8px; 
+  gap: 20px;
+  width: 100%; 
 }
+
+#server-list h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
 
 .server h3 {
   font-size: 18px;
