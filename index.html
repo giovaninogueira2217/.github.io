@@ -7,39 +7,41 @@
   <script src="/script.js"></script>
   <link rel="stylesheet" href="./styles.css">
   <link rel="script" href="./script.js">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <header>
-    <main class="dashboard">
-  
+ 
+  <header class="container" id="dashboard">
       <div class="chart-container">
-        <div>
-          <nav>
-            <ul class="grafico-menu">
-              <li>
-                <a class="menu-icon">
-                  <img src="assets/arrow_icon.png" alt="" />
-                </a>
-                <ul class="grafico-submenu">
-                  <li><a id="asterisk">Asterisk</a></li>
-                  <li><a id="fail2ban">Fail2ban</a></li>
-                  <li><a id="iptables">Iptables</a></li>
-                </ul>
-              </li>
-            </ul>
-          </nav>
+        <nav>
+          <ul class="grafico-menu">
+            <li>
+              <a class="menu-icon">
+                <img src="assets/arrow_icon.png" alt="Menu" />
+              </a>
+              <ul class="grafico-submenu">
+                <li><a id="asterisk">Asterisk</a></li>
+                <li><a id="fail2ban">Fail2ban</a></li>
+                <li><a id="iptables">Iptables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <div class="grc">
+        <p class="hoststotal">Hosts:50</p>
+        <canvas id="graficog"></canvas>
+        <div id="info-grafico">
+          <p><span style="color: green;">Conectados:</span> 85</p>
+          <p><span style="color: red;">Falhas:</span> 15</p>
+          <p><span class="print-error">Erro: Teste</span></p>
         </div>
-        <div class="hoststotal">Hosts:</div>
-        <canvas id="grafico"></canvas>
       </div>
-  
-    </main> 
-  </header>
+    </div>
+
   <section id="server-list">
 
     <div class="server" id="server-status">
-      <h3>Ipsoluction</h3>
+      <h3>Ipsolution</h3>
       <p>Ansible:<span class="status">True</span></p>
       <p>Asterisk:<span class="asterisk-version">Version: 2.13.0</span></p>
       <p>Bacula:<span class="status">True</span></p>
@@ -193,5 +195,6 @@
       <p>Zabbix:<span class="status">True</span></p>
     </div>
     </section>
+  </header>
 </body>
 </html>

@@ -1,17 +1,24 @@
 document.addEventListener('DOMContentLoaded',() => {
   const statusElements = document.querySelectorAll('.status');
-  const ctx = document.getElementById('grafico').getContext('2d');
-  const grafico = new Chart(ctx, {
-
+  const ctx = document.getElementById('graficog').getContext('2d');
+const data = [450, 15];
+const graficog = new Chart(ctx, {
     type: 'pie',
     data: {
-        labels: ['Asterisk', 'Fail2ban', 'Iptables'], 
         datasets: [{
-            data: [10, 20, 30],
-            backgroundColor: ['red', 'Green', 'Blue'],
+            data: data,
+            backgroundColor: ['Green', 'red'],
         }]
     },
 });
+
+// Atualiza as informações no contêiner abaixo do gráfico
+const infoGrafico = document.getElementById('info-grafico');
+infoGrafico.innerHTML = `
+    <p><span style="color: green;">Conectados:</span> ${data[0]}</p>
+    <p><span style="color: red;">Falhas:</span> ${data[1]}</p>
+`;
+
   statusElements.forEach(statusElement => {
     const statusText = statusElement.textContent.trim().toLowerCase();
 
