@@ -11,33 +11,45 @@
 </head>
 <body>
  
-  <header class="container" id="dashboard">
-      <div class="chart-container">
-        <nav>
-          <ul class="grafico-menu">
-            <li>
-              <a class="menu-icon">
-                <img src="assets/arrow_icon.png" alt="Menu" />
-              </a>
-              <ul class="grafico-submenu">
-                <li><a id="asterisk">Asterisk</a></li>
-                <li><a id="fail2ban">Fail2ban</a></li>
-                <li><a id="iptables">Iptables</a></li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-        <div class="grc">
-        <p class="hoststotal">Hosts:50</p>
+  <header class="container">
+    <div class="left">
+      <div class="grc">
+        <p class="hoststotal">Hosts:</p>
         <canvas id="graficog"></canvas>
         <div id="info-grafico">
           <p><span style="color: green;">Conectados:</span> 85</p>
           <p><span style="color: red;">Falhas:</span> 15</p>
-          <p><span class="print-error">Erro: Teste</span></p>
         </div>
       </div>
     </div>
-
+  
+    <div class="graph">
+      <div class="item">Gráfico</div>
+    </div>
+  
+    <div class="arrow">
+      <nav>
+        <ul class="grafico-menu">
+          <li>
+            <a class="menu-icon">
+              <img src="assets/arrow_icon.png" alt="Menu" />
+            </a>
+            <ul class="grafico-submenu">
+              <li><a id="asterisk">Asterisk</a></li>
+              <li><a id="fail2ban">Fail2ban</a></li>
+              <li><a id="iptables">Iptables</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  
+    <div class="bottom">
+      <div class="erros">Item 3</div>
+    </div>
+  </header>
+  
+    <header class="container">
   <section id="server-list">
 
     <div class="server" id="server-status">
