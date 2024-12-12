@@ -18,13 +18,19 @@
         <canvas id="graficog"></canvas>
         <div id="info-grafico">
           <p><span style="color: green;">Conectados:</span> 85</p>
-          <p><span style="color: red;">Falhas:</span> 15</p>
+          <p"><span style="color: red;">Falhas:</span> 15</p>
         </div>
       </div>
     </div>
   
     <div class="graph">
-      <div class="item">Gráfico</div>
+      <main class="main">
+        <div style="width: 60%; margin: auto; text-align: center;">
+          <h2 class="h2canvas">Gráfico de Asterisk</h2>
+          <canvas id="grafico1"></canvas>
+          <canvas id="grafico2"></canvas>
+          <canvas id="grafico3"></canvas>
+    </main>
     </div>
   
     <div class="arrow">
@@ -42,10 +48,11 @@
           </li>
         </ul>
       </nav>
-    </div>
-  
-    <div class="bottom">
-      <div class="erros">Item 3</div>
+      <main>
+        <div id="grafico-container">
+          <canvas id="grafico"></canvas>
+        </div>
+      </main>
     </div>
   </header>
   
@@ -75,7 +82,7 @@
       <p>Zabbix:<span class="status">True</span></p>
     </div>
     <div class="server" id="server-status">
-      <h3>....</h3>
+      <h3>teste teste teste teste</h3>
       <p>Ansible:<span class="status">False</span></p>
       <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
       <p>Bacula:<span class="status">False</span></p>
