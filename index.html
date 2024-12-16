@@ -1,219 +1,321 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard</title>
-  <script src="/script.js"></script>
-  <link rel="stylesheet" href="./styles.css">
-  <link rel="script" href="./script.js">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
- 
-  <header class="container">
-    <div class="left">
-      <div class="grc">
-        <p class="hoststotal">Hosts:</p>
-        <canvas id="graficog"></canvas>
-        <div id="info-grafico">
-          <p><span style="color: green;">Conectados:</span> 85</p>
-          <p"><span style="color: red;">Falhas:</span> 15</p>
-        </div>
-      </div>
-    </div>
-  
-    <div class="graph">
-      <main class="main">
-        <div style="width: 60%; margin: auto; text-align: center;">
-          <h2 class="h2canvas">Gráfico de Asterisk</h2>
-          <canvas id="grafico1"></canvas>
-          <canvas id="grafico2"></canvas>
-          <canvas id="grafico3"></canvas>
-    </main>
-    </div>
-  
-    <div class="arrow">
-      <nav>
-        <ul class="grafico-menu">
-          <li>
-            <a class="menu-icon">
-              <img src="assets/arrow_icon.png" alt="Menu" />
-            </a>
-            <ul class="grafico-submenu">
-              <li><a id="asterisk">Asterisk</a></li>
-              <li><a id="fail2ban">Fail2ban</a></li>
-              <li><a id="iptables">Iptables</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <main>
-        <div id="grafico-container">
-          <canvas id="grafico"></canvas>
-        </div>
-      </main>
-    </div>
-  </header>
+  <!DOCTYPE html>
+  <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+     <script src="/script.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="script" href="./script.js"> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
   
     <header class="container">
-  <section id="server-list">
+      <div class="select-function">
+        <nav>
+          <ul class="grafico-menu">
+            <li>
+              <a class="menu-icon" href="#">
+                <img src="assets/arrow_icon.png" alt="Abrir menu" />
+              </a>
+              <ul class="grafico-submenu">
+                <li><a href="#" class="menu-item" data-chart="asterisk">Asterisk</a></li>
+                <li><a href="#" class="menu-item" data-chart="docker">Docker</a></li>
+                <li><a href="#" class="menu-item" data-chart="fail2ban">Fail2ban</a></li>
+                <li><a href="#" class="menu-item" data-chart="iptables">Iptables</a></li>
+                <li><a href="#" class="menu-item" data-chart="iptell">Iptell</a></li>
+                <li><a href="#" class="menu-item" data-chart="node">Node</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
-    <div class="server" id="server-status">
-      <h3>Ipsolution</h3>
-      <p>Ansible:<span class="status">True</span></p>
-      <p>Asterisk:<span class="asterisk-version">Version: 2.13.0</span></p>
-      <p>Bacula:<span class="status">True</span></p>
-      <p>Fail2ban:<span class="status">False</span></p>
-      <p>Grafana:<span class="status">False</span></p>
-      <p>Iptables Status:<span class="status">True</span></p>
-      <p>Monitoring:<span class="status">True</span></p>
-      <p>Zabbix:<span class="status">True</span></p>
-    </div>
-    <div class="server" id="server-status">
-      <h3>3sat</h3>
-      <p>Ansible:<span class="status">False</span></p>
-      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
-      <p>Bacula:<span class="status">False</span></p>
-      <p>Fail2ban:<span class="status">False</span></p>
-      <p>Grafana:<span class="status">True</span></p>
-      <p>Iptables Status:<span class="status">True</span></p>
-      <p>Monitoring:<span class="status">True</span></p>
-      <p>Zabbix:<span class="status">True</span></p>
-    </div>
-    <div class="server" id="server-status">
-      <h3>teste teste teste teste</h3>
-      <p>Ansible:<span class="status">False</span></p>
-      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
-      <p>Bacula:<span class="status">False</span></p>
-      <p>Fail2ban:<span class="status">False</span></p>
-      <p>Grafana:<span class="status">True</span></p>
-      <p>Iptables Status:<span class="status">True</span></p>
-      <p>Monitoring:<span class="status">True</span></p>
-      <p>Zabbix:<span class="status">True</span></p>
-    </div>
-    <div class="server" id="server-status">
-      <h3>....</h3>
-      <p>Ansible:<span class="status">False</span></p>
-      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
-      <p>Bacula:<span class="status">False</span></p>
-      <p>Fail2ban:<span class="status">False</span></p>
-      <p>Grafana:<span class="status">True</span></p>
-      <p>Iptables Status:<span class="status">True</span></p>
-      <p>Monitoring:<span class="status">True</span></p>
-      <p>Zabbix:<span class="status">True</span></p>
-    </div>
-    <div class="server" id="server-status">
-      <h3>....</h3>
-      <p>Ansible:<span class="status">False</span></p>
-      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
-      <p>Bacula:<span class="status">False</span></p>
-      <p>Fail2ban:<span class="status">False</span></p>
-      <p>Grafana:<span class="status">True</span></p>
-      <p>Iptables Status:<span class="status">True</span></p>
-      <p>Monitoring:<span class="status">True</span></p>
-      <p>Zabbix:<span class="status">True</span></p>
-    </div>
-    <div class="server" id="server-status">
-      <h3>....</h3>
-      <p>Ansible:<span class="status">False</span></p>
-      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
-      <p>Bacula:<span class="status">False</span></p>
-      <p>Fail2ban:<span class="status">False</span></p>
-      <p>Grafana:<span class="status">True</span></p>
-      <p>Iptables Status:<span class="status">True</span></p>
-      <p>Monitoring:<span class="status">True</span></p>
-      <p>Zabbix:<span class="status">True</span></p>
-    </div>
-    <div class="server" id="server-status">
-      <h3>....</h3>
-      <p>Ansible:<span class="status">False</span></p>
-      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
-      <p>Bacula:<span class="status">False</span></p>
-      <p>Fail2ban:<span class="status">False</span></p>
-      <p>Grafana:<span class="status">True</span></p>
-      <p>Iptables Status:<span class="status">True</span></p>
-      <p>Monitoring:<span class="status">True</span></p>
-      <p>Zabbix:<span class="status">True</span></p>
-    </div>
-    <div class="server" id="server-status">
-      <h3>....</h3>
-      <p>Ansible:<span class="status">False</span></p>
-      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
-      <p>Bacula:<span class="status">False</span></p>
-      <p>Fail2ban:<span class="status">False</span></p>
-      <p>Grafana:<span class="status">True</span></p>
-      <p>Iptables Status:<span class="status">True</span></p>
-      <p>Monitoring:<span class="status">True</span></p>
-      <p>Zabbix:<span class="status">True</span></p>
-    </div>
-    <div class="server" id="server-status">
-      <h3>....</h3>
-      <p>Ansible:<span class="status">False</span></p>
-      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
-      <p>Bacula:<span class="status">False</span></p>
-      <p>Fail2ban:<span class="status">False</span></p>
-      <p>Grafana:<span class="status">True</span></p>
-      <p>Iptables Status:<span class="status">True</span></p>
-      <p>Monitoring:<span class="status">True</span></p>
-      <p>Zabbix:<span class="status">True</span></p>
-    </div>
-    <div class="server" id="server-status">
-      <h3>....</h3>
-      <p>Ansible:<span class="status">False</span></p>
-      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
-      <p>Bacula:<span class="status">False</span></p>
-      <p>Fail2ban:<span class="status">False</span></p>
-      <p>Grafana:<span class="status">True</span></p>
-      <p>Iptables Status:<span class="status">True</span></p>
-      <p>Monitoring:<span class="status">True</span></p>
-      <p>Zabbix:<span class="status">True</span></p>
-    </div>
-    <div class="server" id="server-status">
-      <h3>....</h3>
-      <p>Ansible:<span class="status">False</span></p>
-      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
-      <p>Bacula:<span class="status">False</span></p>
-      <p>Fail2ban:<span class="status">False</span></p>
-      <p>Grafana:<span class="status">True</span></p>
-      <p>Iptables Status:<span class="status">True</span></p>
-      <p>Monitoring:<span class="status">True</span></p>
-      <p>Zabbix:<span class="status">True</span></p>
-    </div>
-    <div class="server" id="server-status">
-      <h3>....</h3>
-      <p>Ansible:<span class="status">False</span></p>
-      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
-      <p>Bacula:<span class="status">False</span></p>
-      <p>Fail2ban:<span class="status">False</span></p>
-      <p>Grafana:<span class="status">True</span></p>
-      <p>Iptables Status:<span class="status">True</span></p>
-      <p>Monitoring:<span class="status">True</span></p>
-      <p>Zabbix:<span class="status">True</span></p>
-    </div>
-    <div class="server" id="server-status">
-      <h3>....</h3>
-      <p>Ansible:<span class="status">False</span></p>
-      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
-      <p>Bacula:<span class="status">False</span></p>
-      <p>Fail2ban:<span class="status">False</span></p>
-      <p>Grafana:<span class="status">True</span></p>
-      <p>Iptables Status:<span class="status">True</span></p>
-      <p>Monitoring:<span class="status">True</span></p>
-      <p>Zabbix:<span class="status">True</span></p>
-    </div>
-    <div class="server" id="server-status">
-      <h3>....</h3>
-      <p>Ansible:<span class="status">False</span></p>
-      <p>Asterisk:<span class="asterisk-version">Version: 2.11.0</span></p>
-      <p>Bacula:<span class="status">False</span></p>
-      <p>Fail2ban:<span class="status">False</span></p>
-      <p>Grafana:<span class="status">True</span></p>
-      <p>Iptables Status:<span class="status">True</span></p>
-      <p>Monitoring:<span class="status">True</span></p>
-      <p>Zabbix:<span class="status">True</span></p>
-    </div>
-    </section>
-  </header>
-</body>
-</html>
+      <div class="grafico">
+    <canvas id="dynamicChart"></canvas>
+  </div>
+    </header>
+    
+      <header class="server-container">
+        <section id="server-list">
+          <div id="server-identification">
+            <h3 id="server-name">Ipsolution</h3>
+            <div id="server-txt">
+              <p>asteriskService: <span id="asteriskService">null</span></p>
+                <p>asteriskVersion: <span id="asteriskVersion">16.9.0</span></p>
+                <p>branchVersion: <span id="branchVersion">IPV1-2322-MONITORAMENTO-Internamente-analisar-status-de-alguns-servicos</span></p>
+                <p>cpus: <span id="cpu">2</span></p>
+                <p>created_at: <span id="created-at">2024-12-13T04:56:11.859Z</span></p>
+                <p>deleted_at: <span id="deleted-at">null</span></p>
+                <p>docker: <span id="docker">null</span></p>
+                <p>fail2banVersion: <span id="fail2banVersion">2</span></p>
+                <p>hd: <span id="hd">100</span></p>
+                <p>iptablesRegras: <span id="iptablesRegras">null</span></p>
+                <p>iptablesVersion: <span id="iptablesVersion">1</span></p>
+                <p>iptell: <span id="iptell">2.19.0</span></p>
+                <p>memoria: <span id="memoria">8</span></p>
+                <p>node: <span id="node">v18.20.5</span></p>
+                <p>updated_at: <span id="updated-at">2024-12-13T04:56:11.859Z</span></p>
+                <p>ultimaLigacao: <span id="ultimaLigacao">null</span></p>
+                <p>ultimaMensagem: <span id="ultimaMensagem">null</span></p>
+                <p>uptime: <span id="uptime">127178.4</span></p>
+                <p>version: <span id="version">Debian GNU/Linux 11 (bullseye)</span></p>
+                <p>ipv4: <span id="ipv4">185.139.1.223</span></p>
+            </div>
+          </div>
+        
+          <div id="server-identification">
+            <h3 id="server-name">3sat</h3>
+            <div id="server-txt">
+              <p>asteriskService: <span id="asteriskService">null</span></p>
+                <p>asteriskVersion: <span id="asteriskVersion">16.9.0</span></p>
+                <p>branchVersion: <span id="branchVersion">IPV1-2322-MONITORAMENTO-Internamente-analisar-status-de-alguns-servicos</span></p>
+                <p>cpus: <span id="cpu">2</span></p>
+                <p>created_at: <span id="created-at">2024-12-13T04:56:11.859Z</span></p>
+                <p>deleted_at: <span id="deleted-at">null</span></p>
+                <p>docker: <span id="docker">null</span></p>
+                <p>fail2banVersion: <span id="fail2banVersion">2</span></p>
+                <p>hd: <span id="hd">100</span></p>
+                <p>iptablesRegras: <span id="iptablesRegras">null</span></p>
+                <p>iptablesVersion: <span id="iptablesVersion">1</span></p>
+                <p>iptell: <span id="iptell">2.19.0</span></p>
+                <p>memoria: <span id="memoria">8</span></p>
+                <p>node: <span id="node">v18.20.5</span></p>
+                <p>updated_at: <span id="updated-at">2024-12-13T04:56:11.859Z</span></p>
+                <p>ultimaLigacao: <span id="ultimaLigacao">null</span></p>
+                <p>ultimaMensagem: <span id="ultimaMensagem">null</span></p>
+                <p>uptime: <span id="uptime">127178.4</span></p>
+                <p>version: <span id="version">Debian GNU/Linux 11 (bullseye)</span></p>
+                <p>ipv4: <span id="ipv4">185.139.1.223</span></p>
+            </div>
+          </div>
+          <div id="server-identification">
+            <h3 id="server-name">Aqui Telecom</h3>
+            <div id="server-txt">
+              <p>asteriskService: <span id="asteriskService">null</span></p>
+                <p>asteriskVersion: <span id="asteriskVersion">16.9.0</span></p>
+                <p>branchVersion: <span id="branchVersion">IPV1-2322-MONITORAMENTO-Internamente-analisar-status-de-alguns-servicos</span></p>
+                <p>cpus: <span id="cpu">2</span></p>
+                <p>created_at: <span id="created-at">2024-12-13T04:56:11.859Z</span></p>
+                <p>deleted_at: <span id="deleted-at">null</span></p>
+                <p>docker: <span id="docker">null</span></p>
+                <p>fail2banVersion: <span id="fail2banVersion">2</span></p>
+                <p>hd: <span id="hd">100</span></p>
+                <p>iptablesRegras: <span id="iptablesRegras">null</span></p>
+                <p>iptablesVersion: <span id="iptablesVersion">1</span></p>
+                <p>iptell: <span id="iptell">2.19.0</span></p>
+                <p>memoria: <span id="memoria">8</span></p>
+                <p>node: <span id="node">v18.20.5</span></p>
+                <p>updated_at: <span id="updated-at">2024-12-13T04:56:11.859Z</span></p>
+                <p>ultimaLigacao: <span id="ultimaLigacao">null</span></p>
+                <p>ultimaMensagem: <span id="ultimaMensagem">null</span></p>
+                <p>uptime: <span id="uptime">127178.4</span></p>
+                <p>version: <span id="version">Debian GNU/Linux 11 (bullseye)</span></p>
+                <p>ipv4: <span id="ipv4">185.139.1.223</span></p>
+            </div>
+          </div>
+          <div id="server-identification">
+            <h3 id="server-name">Aqui Telecom</h3>
+            <div id="server-txt">
+              <p>asteriskService: <span id="asteriskService">null</span></p>
+                <p>asteriskVersion: <span id="asteriskVersion">16.9.0</span></p>
+                <p>branchVersion: <span id="branchVersion">IPV1-2322-MONITORAMENTO-Internamente-analisar-status-de-alguns-servicos</span></p>
+                <p>cpus: <span id="cpu">2</span></p>
+                <p>created_at: <span id="created-at">2024-12-13T04:56:11.859Z</span></p>
+                <p>deleted_at: <span id="deleted-at">null</span></p>
+                <p>docker: <span id="docker">null</span></p>
+                <p>fail2banVersion: <span id="fail2banVersion">2</span></p>
+                <p>hd: <span id="hd">100</span></p>
+                <p>iptablesRegras: <span id="iptablesRegras">null</span></p>
+                <p>iptablesVersion: <span id="iptablesVersion">1</span></p>
+                <p>iptell: <span id="iptell">2.19.0</span></p>
+                <p>memoria: <span id="memoria">8</span></p>
+                <p>node: <span id="node">v18.20.5</span></p>
+                <p>updated_at: <span id="updated-at">2024-12-13T04:56:11.859Z</span></p>
+                <p>ultimaLigacao: <span id="ultimaLigacao">null</span></p>
+                <p>ultimaMensagem: <span id="ultimaMensagem">null</span></p>
+                <p>uptime: <span id="uptime">127178.4</span></p>
+                <p>version: <span id="version">Debian GNU/Linux 11 (bullseye)</span></p>
+                <p>ipv4: <span id="ipv4">185.139.1.223</span></p>
+            </div>
+          </div>
+          <div id="server-identification">
+            <h3 id="server-name">Aqui Telecom</h3>
+            <div id="server-txt">
+              <p>asteriskService: <span id="asteriskService">null</span></p>
+                <p>asteriskVersion: <span id="asteriskVersion">16.9.0</span></p>
+                <p>branchVersion: <span id="branchVersion">IPV1-2322-MONITORAMENTO-Internamente-analisar-status-de-alguns-servicos</span></p>
+                <p>cpus: <span id="cpu">2</span></p>
+                <p>created_at: <span id="created-at">2024-12-13T04:56:11.859Z</span></p>
+                <p>deleted_at: <span id="deleted-at">null</span></p>
+                <p>docker: <span id="docker">null</span></p>
+                <p>fail2banVersion: <span id="fail2banVersion">2</span></p>
+                <p>hd: <span id="hd">100</span></p>
+                <p>iptablesRegras: <span id="iptablesRegras">null</span></p>
+                <p>iptablesVersion: <span id="iptablesVersion">1</span></p>
+                <p>iptell: <span id="iptell">2.19.0</span></p>
+                <p>memoria: <span id="memoria">8</span></p>
+                <p>node: <span id="node">v18.20.5</span></p>
+                <p>updated_at: <span id="updated-at">2024-12-13T04:56:11.859Z</span></p>
+                <p>ultimaLigacao: <span id="ultimaLigacao">null</span></p>
+                <p>ultimaMensagem: <span id="ultimaMensagem">null</span></p>
+                <p>uptime: <span id="uptime">127178.4</span></p>
+                <p>version: <span id="version">Debian GNU/Linux 11 (bullseye)</span></p>
+                <p>ipv4: <span id="ipv4">185.139.1.223</span></p>
+            </div>
+          </div>
+          <div id="server-identification">
+            <h3 id="server-name">Aqui Telecom</h3>
+            <div id="server-txt">
+              <p>asteriskService: <span id="asteriskService">null</span></p>
+                <p>asteriskVersion: <span id="asteriskVersion">16.9.0</span></p>
+                <p>branchVersion: <span id="branchVersion">IPV1-2322-MONITORAMENTO-Internamente-analisar-status-de-alguns-servicos</span></p>
+                <p>cpus: <span id="cpu">2</span></p>
+                <p>created_at: <span id="created-at">2024-12-13T04:56:11.859Z</span></p>
+                <p>deleted_at: <span id="deleted-at">null</span></p>
+                <p>docker: <span id="docker">null</span></p>
+                <p>fail2banVersion: <span id="fail2banVersion">2</span></p>
+                <p>hd: <span id="hd">100</span></p>
+                <p>iptablesRegras: <span id="iptablesRegras">null</span></p>
+                <p>iptablesVersion: <span id="iptablesVersion">1</span></p>
+                <p>iptell: <span id="iptell">2.19.0</span></p>
+                <p>memoria: <span id="memoria">8</span></p>
+                <p>node: <span id="node">v18.20.5</span></p>
+                <p>updated_at: <span id="updated-at">2024-12-13T04:56:11.859Z</span></p>
+                <p>ultimaLigacao: <span id="ultimaLigacao">null</span></p>
+                <p>ultimaMensagem: <span id="ultimaMensagem">null</span></p>
+                <p>uptime: <span id="uptime">127178.4</span></p>
+                <p>version: <span id="version">Debian GNU/Linux 11 (bullseye)</span></p>
+                <p>ipv4: <span id="ipv4">185.139.1.223</span></p>
+            </div>
+          </div><div id="server-identification">
+            <h3 id="server-name">Aqui Telecom</h3>
+            <div id="server-txt">
+              <p>asteriskService: <span id="asteriskService">null</span></p>
+                <p>asteriskVersion: <span id="asteriskVersion">16.9.0</span></p>
+                <p>branchVersion: <span id="branchVersion">IPV1-2322-MONITORAMENTO-Internamente-analisar-status-de-alguns-servicos</span></p>
+                <p>cpus: <span id="cpu">2</span></p>
+                <p>created_at: <span id="created-at">2024-12-13T04:56:11.859Z</span></p>
+                <p>deleted_at: <span id="deleted-at">null</span></p>
+                <p>docker: <span id="docker">null</span></p>
+                <p>fail2banVersion: <span id="fail2banVersion">2</span></p>
+                <p>hd: <span id="hd">100</span></p>
+                <p>iptablesRegras: <span id="iptablesRegras">null</span></p>
+                <p>iptablesVersion: <span id="iptablesVersion">1</span></p>
+                <p>iptell: <span id="iptell">2.19.0</span></p>
+                <p>memoria: <span id="memoria">8</span></p>
+                <p>node: <span id="node">v18.20.5</span></p>
+                <p>updated_at: <span id="updated-at">2024-12-13T04:56:11.859Z</span></p>
+                <p>ultimaLigacao: <span id="ultimaLigacao">null</span></p>
+                <p>ultimaMensagem: <span id="ultimaMensagem">null</span></p>
+                <p>uptime: <span id="uptime">127178.4</span></p>
+                <p>version: <span id="version">Debian GNU/Linux 11 (bullseye)</span></p>
+                <p>ipv4: <span id="ipv4">185.139.1.223</span></p>
+            </div>
+          </div>
+          <div id="server-identification">
+            <h3 id="server-name">Aqui Telecom</h3>
+            <div id="server-txt">
+              <p>asteriskService: <span id="asteriskService">null</span></p>
+                <p>asteriskVersion: <span id="asteriskVersion">16.9.0</span></p>
+                <p>branchVersion: <span id="branchVersion">IPV1-2322-MONITORAMENTO-Internamente-analisar-status-de-alguns-servicos</span></p>
+                <p>cpus: <span id="cpu">2</span></p>
+                <p>created_at: <span id="created-at">2024-12-13T04:56:11.859Z</span></p>
+                <p>deleted_at: <span id="deleted-at">null</span></p>
+                <p>docker: <span id="docker">null</span></p>
+                <p>fail2banVersion: <span id="fail2banVersion">2</span></p>
+                <p>hd: <span id="hd">100</span></p>
+                <p>iptablesRegras: <span id="iptablesRegras">null</span></p>
+                <p>iptablesVersion: <span id="iptablesVersion">1</span></p>
+                <p>iptell: <span id="iptell">2.19.0</span></p>
+                <p>memoria: <span id="memoria">8</span></p>
+                <p>node: <span id="node">v18.20.5</span></p>
+                <p>updated_at: <span id="updated-at">2024-12-13T04:56:11.859Z</span></p>
+                <p>ultimaLigacao: <span id="ultimaLigacao">null</span></p>
+                <p>ultimaMensagem: <span id="ultimaMensagem">null</span></p>
+                <p>uptime: <span id="uptime">127178.4</span></p>
+                <p>version: <span id="version">Debian GNU/Linux 11 (bullseye)</span></p>
+                <p>ipv4: <span id="ipv4">185.139.1.223</span></p>
+            </div>
+          </div>
+          <div id="server-identification">
+            <h3 id="server-name">Aqui Telecom</h3>
+            <div id="server-txt">
+              <p>asteriskService: <span id="asteriskService">null</span></p>
+                <p>asteriskVersion: <span id="asteriskVersion">16.9.0</span></p>
+                <p>branchVersion: <span id="branchVersion">IPV1-2322-MONITORAMENTO-Internamente-analisar-status-de-alguns-servicos</span></p>
+                <p>cpus: <span id="cpu">2</span></p>
+                <p>created_at: <span id="created-at">2024-12-13T04:56:11.859Z</span></p>
+                <p>deleted_at: <span id="deleted-at">null</span></p>
+                <p>docker: <span id="docker">null</span></p>
+                <p>fail2banVersion: <span id="fail2banVersion">2</span></p>
+                <p>hd: <span id="hd">100</span></p>
+                <p>iptablesRegras: <span id="iptablesRegras">null</span></p>
+                <p>iptablesVersion: <span id="iptablesVersion">1</span></p>
+                <p>iptell: <span id="iptell">2.19.0</span></p>
+                <p>memoria: <span id="memoria">8</span></p>
+                <p>node: <span id="node">v18.20.5</span></p>
+                <p>updated_at: <span id="updated-at">2024-12-13T04:56:11.859Z</span></p>
+                <p>ultimaLigacao: <span id="ultimaLigacao">null</span></p>
+                <p>ultimaMensagem: <span id="ultimaMensagem">null</span></p>
+                <p>uptime: <span id="uptime">127178.4</span></p>
+                <p>version: <span id="version">Debian GNU/Linux 11 (bullseye)</span></p>
+                <p>ipv4: <span id="ipv4">185.139.1.223</span></p>
+            </div>
+          </div>
+          <div id="server-identification">
+            <h3 id="server-name">Aqui Telecom</h3>
+            <div id="server-txt">
+              <p>asteriskService: <span id="asteriskService">null</span></p>
+                <p>asteriskVersion: <span id="asteriskVersion">16.9.0</span></p>
+                <p>branchVersion: <span id="branchVersion">IPV1-2322-MONITORAMENTO-Internamente-analisar-status-de-alguns-servicos</span></p>
+                <p>cpus: <span id="cpu">2</span></p>
+                <p>created_at: <span id="created-at">2024-12-13T04:56:11.859Z</span></p>
+                <p>deleted_at: <span id="deleted-at">null</span></p>
+                <p>docker: <span id="docker">null</span></p>
+                <p>fail2banVersion: <span id="fail2banVersion">2</span></p>
+                <p>hd: <span id="hd">100</span></p>
+                <p>iptablesRegras: <span id="iptablesRegras">null</span></p>
+                <p>iptablesVersion: <span id="iptablesVersion">1</span></p>
+                <p>iptell: <span id="iptell">2.19.0</span></p>
+                <p>memoria: <span id="memoria">8</span></p>
+                <p>node: <span id="node">v18.20.5</span></p>
+                <p>updated_at: <span id="updated-at">2024-12-13T04:56:11.859Z</span></p>
+                <p>ultimaLigacao: <span id="ultimaLigacao">null</span></p>
+                <p>ultimaMensagem: <span id="ultimaMensagem">null</span></p>
+                <p>uptime: <span id="uptime">127178.4</span></p>
+                <p>version: <span id="version">Debian GNU/Linux 11 (bullseye)</span></p>
+                <p>ipv4: <span id="ipv4">185.139.1.223</span></p>
+            </div>
+          </div>
+          <div id="server-identification">
+            <h3 id="server-name">Aqui Telecom</h3>
+            <div id="server-txt">
+              <p>asteriskService: <span id="asteriskService">null</span></p>
+                <p>asteriskVersion: <span id="asteriskVersion">16.9.0</span></p>
+                <p>branchVersion: <span id="branchVersion">IPV1-2322-MONITORAMENTO-Internamente-analisar-status-de-alguns-servicos</span></p>
+                <p>cpus: <span id="cpu">2</span></p>
+                <p>created_at: <span id="created-at">2024-12-13T04:56:11.859Z</span></p>
+                <p>deleted_at: <span id="deleted-at">null</span></p>
+                <p>docker: <span id="docker">null</span></p>
+                <p>fail2banVersion: <span id="fail2banVersion">2</span></p>
+                <p>hd: <span id="hd">100</span></p>
+                <p>iptablesRegras: <span id="iptablesRegras">null</span></p>
+                <p>iptablesVersion: <span id="iptablesVersion">1</span></p>
+                <p>iptell: <span id="iptell">2.19.0</span></p>
+                <p>memoria: <span id="memoria">8</span></p>
+                <p>node: <span id="node">v18.20.5</span></p>
+                <p>updated_at: <span id="updated-at">2024-12-13T04:56:11.859Z</span></p>
+                <p>ultimaLigacao: <span id="ultimaLigacao">null</span></p>
+                <p>ultimaMensagem: <span id="ultimaMensagem">null</span></p>
+                <p>uptime: <span id="uptime">127178.4</span></p>
+                <p>version: <span id="version">Debian GNU/Linux 11 (bullseye)</span></p>
+                <p>ipv4: <span id="ipv4">185.139.1.223</span></p>
+            </div>
+          </div>
+        </section>
+        
+    </header>
+  </body>
+  </html>

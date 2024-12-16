@@ -1,95 +1,137 @@
-document.addEventListener('DOMContentLoaded',() => {
-  const statusElements = document.querySelectorAll('.status');
-  const ctx = document.getElementById('graficog').getContext('2d');
-const data = [450, 15];
-const graficog = new Chart(ctx, {
-    type: 'pie',
+document.addEventListener("DOMContentLoaded", () => {
+  const ctx = document.getElementById("dynamicChart").getContext("2d");
+  var minhaDiv = document.getElementById('number-host');
+
+  const initialData = [85, 15];
+  let chartInstance = new Chart(ctx, {
+    type: "doughnut",
     data: {
-        datasets: [{
-            data: data,
-            backgroundColor: ['Green', 'red'],
-        }]
-    },
-});
-
-const infoGrafico = document.getElementById('info-grafico');
-infoGrafico.innerHTML = `
-    <p><span style="color: green;">Conectados:</span> ${data[0]}</p>
-    <p><span style="color: red;">Falhas:</span> ${data[1]}</p>
-`;
-
-  statusElements.forEach(statusElement => {
-    const statusText = statusElement.textContent.trim().toLowerCase();
-
-    if (statusText === 'true') {
-      statusElement.classList.add('status-true');
-    } else if (statusText === 'false') {
-      statusElement.classList.add('status-false');
-    }
-  });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const ctx = document.getElementById('grafico').getContext('2d');
-  let chartInstance;
-
-  const configPadrao = (label, data, color) => ({
-    type: 'line', 
-    data: {
-      labels: ['Jan', 'Feb', 'Mar', 'Apr'], 
+      labels: ["Conectados", "Falhas"],
       datasets: [{
-        label: label,
-        data: data, 
-        backgroundColor: `${color}33`,
-        borderColor: color, 
-        borderWidth: 2, 
-        tension: 0.4, 
-        fill: true 
+        label: "Dados Iniciais",
+        data: initialData,
+        backgroundColor: ["#0fc902", "#ff0000"]
       }]
     },
     options: {
-      responsive: true, 
-      maintainAspectRatio: false, 
+      responsive: true,
       plugins: {
         legend: {
-          display: true,
-          position: 'top' 
-        }
-      },
-      scales: {
-        x: {
-          title: {
-            display: true,
-            text: 'Meses'
+          position: "bottom",
+          labels: {
+            generateLabels: (chart) => {
+              const data = chart.data.datasets[0].data;
+              const total = data.reduce((acc, value) => acc + value, 0);
+
+              return chart.data.labels.map((label, i) => {
+                const value = data[i];
+                const percentage = ((value / total) * 100).toFixed(1); 
+                return {
+                  text: `${label} (${percentage}%)`,
+                  fillStyle: chart.data.datasets[0].backgroundColor[i]
+                };
+              });
+            }
           }
         },
-        y: {
-          beginAtZero: true, 
-          title: {
-            display: true,
-            text: 'Valores'
+        hosts: {
+          display: true,
+          text: "Hosts:"
+        },
+        title: {
+          display: true,
+          text: "Asterisk"
+        },
+        padding: {
+          top: 20,
+          bottom: 30
+        },
+        font: {
+          size: 0 
+        },
+        
+        tooltip: {
+          callbacks: {
+            label: function (tooltipItem) {
+              const data = tooltipItem.dataset.data;
+              const total = data.reduce((acc, value) => acc + value, 0);
+              const value = data[tooltipItem.dataIndex];
+              const percentage = ((value / total) * 100).toFixed(1);
+              return `${tooltipItem.label}: ${value} (${percentage}%)`;
+            }
+          }
+        },
+        
+        datalabels: {
+          display: true,
+          formatter: (value, context) => {
+            const total = context.dataset.data.reduce((acc, val) => acc + val, 0);
+            const percentage = ((value / total) * 100).toFixed(1); 
+            return `${context.chart.options.plugins.title.text.hosts}`; 
+          },
+          color: '#fff', 
+          font: {
+            weight: 'bold',
+            size: 20
           }
         }
       }
     }
   });
 
-  const graficosConfig = {
-    asterisk: configPadrao('Asterisk', [10, 20, 15, 30], 'rgba(75, 192, 192, 1)'),
-    fail2ban: configPadrao('Fail2ban', [5, 15, 10, 25], 'rgba(153, 102, 255, 1)'),
-    iptables: configPadrao('Iptables', [50, 40, 35, 25], 'rgba(255, 99, 132, 1)')
-  };
+  
+  const menuItems = document.querySelectorAll(".menu-item");
+  menuItems.forEach(item => {
+    item.addEventListener("click", async (e) => {
+      e.preventDefault();
 
-  const renderGrafico = (id) => {
-    if (chartInstance) {
-      chartInstance.destroy(); 
-    }
-    chartInstance = new Chart(ctx, graficosConfig[id]);
-  };
+      const chartType = item.dataset.chart;
+      
+      let newData;
+      let newTitle; 
+      let newHosts;
 
-  renderGrafico('asterisk');
+      switch (chartType) {
+        case "asterisk":
+          newHosts = "Hosts conectados:";
+          newData = [70, 30];
+          newTitle = "Dados do Asterisk";
+          break;
+        case "docker":
+          newhosts = "Hosts conectados:";
+          newData = [20, 80];
+          newTitle = "Dados do Docker";
+          break;
+        case "fail2ban":
+          newhosts = "Hosts conectados:";
+          newData = [50, 50];
+          newTitle = "Dados do Fail2ban";
+          break;
+        case "iptables":
+          newhosts = "Hosts conectados:";
+          newData = [75, 25];
+          newTitle = "Dados do Iptables";
+          break;
+        case "iptell":
+          newhosts = "Hosts conectados:";
+          newData = [35, 65];
+          newTitle = "Dados do Iptell";
+          break;
+        case "node":
+          newhosts = "Hosts conectados:";
+          newData = [99, 1];
+          newTitle = "Dados do Node";
+          break;
+        default:
+          newhosts = "Hosts conectados:";
+          newData = [90, 10];
+          newTitle = "Gráfico Dinâmico";
+      }
 
-  document.getElementById('asterisk').addEventListener('click', () => renderGrafico('asterisk'));
-  document.getElementById('fail2ban').addEventListener('click', () => renderGrafico('fail2ban'));
-  document.getElementById('iptables').addEventListener('click', () => renderGrafico('iptables'));
+      chartInstance.data.datasets[0].data = newData;
+      chartInstance.options.plugins.title.text = newTitle;
+      
+      chartInstance.update();
+    });
+  });
 });

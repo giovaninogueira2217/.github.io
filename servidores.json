@@ -1,0 +1,25 @@
+{
+  "server": {
+    "name": "Ipsolution",
+    "ipv4": "185.139.1.223",
+    "iptell": "2.19.0",
+    "docker": null,
+    "created_at": "2024-12-13T04:56:11.859Z",
+    "updated_at": "2024-12-13T04:56:11.859Z",
+    "deleted_at": null,
+    "uptime": 127178.4,
+    "version": "Debian GNU/Linux 11 (bullseye)",
+    "node": "v18.20.5",
+    "cpus": 2,
+    "ultimaLigacao": null,
+    "ultimaMensagem": null,
+    "memoria": 8,
+    "hd": 100,
+    "iptablesRegras": null,
+    "asteriskService": null,
+    "asteriskVersion": "16.9.0",
+    "iptablesVersion": 1,
+    "fail2banVersion": 2,
+    "branchVersion": "IPV1-2322-MONITORAMENTO-Internamente-analisar-status-de-alguns-servi-os"
+  }
+}
